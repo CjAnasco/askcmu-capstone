@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASKCMU Chatbot - Login</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="login-container">
+    <!-- Optional grid icon -->
+    <div class="login-grid-icon">
+      <img src="../images/grid-icon.png" alt="Grid Icon">
+    </div>
+
+    <div class="login-avatar">
+      <img src="../images/robot-icon.png" alt="Chatbot" class="login-avatar-image">
+    </div>
+
+    <div class="login-panel">
+      <!-- ✅ Form now posts to backend -->
+      <form id="loginForm" method="POST" action="../backend/verify-captcha.php">
+        <div class="login-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="login-input" placeholder="Enter your email" required>
+        </div>
+
+        <div class="login-field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="login-input" placeholder="Enter your password" required>
+        </div>
+
+        <!-- ✅ reCAPTCHA widget -->
+        <div class="login-field">
+          <div class="g-recaptcha" data-sitekey="6Le2vqMrAAAAAJePHDBCgJM-5wBJVqP1ONi4SMc_"></div>
+        </div>
+
+        <!-- ✅ Hidden field for token (auto-filled by reCAPTCHA) -->
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
+        <button type="submit" class="login-button">Login</button>
+        <p class="login-forgot"><a href="#">Forgot Password?</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Load reCAPTCHA script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- ✅ Optional: fallback if CAPTCHA not completed -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      const token = document.getElementById('g-recaptcha-response').value;
+      if (!token) {
+        e.preventDefault();
+        alert("Please complete the CAPTCHA before logging in.");
+      }
+    });
+  </script>
+
+  <!-- ✅ Load Firebase login logic (optional, if used after CAPTCHA passes) -->
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

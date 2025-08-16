@@ -1,0 +1,52 @@
+.chatlog-ui-body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.chatlog-ui-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.chatlog-ui-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.chatlog-ui-user-block {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.chatlog-ui-user-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #0077cc;
+}
+
+.chatlog-ui-entry {
+  margin-bottom: 15px;
+}
+
+.chatlog-ui-timestamp {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.chatlog-ui-user {
+  color: #0077cc;
+}
+
+.chatlog-ui-bot {
+  color: #444;
+}
+
+.chatlog-ui-error {
+  color: red;
+  font-weight: bold;
+}

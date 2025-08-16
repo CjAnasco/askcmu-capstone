@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin FAQ Manager</title>
+  <script type="module" src="../js/admin.js"></script>
+</head>
+<body>
+  <h1>FAQ Admin Panel</h1>
+  <form id="faqForm">
+    <input type="text" id="faqId" placeholder="Intent ID (e.g. enrollment)" required />
+    <input type="text" id="keywords" placeholder="Keywords (comma separated)" required />
+    <input type="text" id="response" placeholder="Response" required />
+    <input type="text" id="confirm" placeholder="Confirm (optional)" />
+    <button type="submit">Save FAQ</button>
+  </form>
+  <ul id="faqList"></ul>
+</body>
+</html>

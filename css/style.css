@@ -1,0 +1,289 @@
+/* === Global Styles === */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* === Signup Page Styles === */
+  .signup-layout {
+    display: flex;
+    width: 900px;
+    height: 520px;
+    gap: 40px;
+  }
+  
+  .signup-image-box {
+    width: 430px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .signup-form-panel {
+    width: 430px;
+    height: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .signup-form-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .signup-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .signup-field label {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #444;
+  }
+  
+  .signup-input {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+  
+  .signup-input::placeholder {
+    font-size: 15px;
+    color: #999;
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .signup-button:hover {
+    background-color: #333;
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-link a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+   /* === Signup Page Styles === */ 
+
+/* === Login Page Styles === */
+
+.login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Floating chatbot avatar */
+  .login-avatar {
+    position: absolute;
+    top: 60px;
+    z-index: 2;
+  }
+  
+  .login-avatar-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+/* === Login Container === */
+.login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  /* === Login Panel === */
+  .login-panel {
+    width: 500px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* equal vertical spacing between children */
+  }
+  
+  /* === Form Fields === */
+  .login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .login-field label {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+  }
+  
+  /* === Input Fields === */
+  .login-input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+  
+  .login-input::placeholder {
+    font-size: 16px;
+    color: #999;
+  }
+  
+  /* === Login Button === */
+  .login-button {
+    width: 100%; /* matches input width */
+    padding: 14px;
+    font-size: 16px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #333;
+  }
+  
+  /* === Forgot Password === */
+  .login-forgot {
+    font-size: 14px;
+    text-align: left;
+  }
+  
+  .login-forgot a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  .login-forgot a:hover {
+    text-decoration: underline;
+  }
+
+
+ /* === Chatbot Page Styles === */
+.askcmu-chatbot-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.askcmu-chat-window {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.askcmu-message {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 80%;
+}
+
+.askcmu-bot {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.askcmu-user {
+  background-color: #cfe9ff;
+  align-self: flex-end;
+}
+
+.askcmu-chat-form {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.askcmu-chat-form input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+}
+
+.askcmu-chat-form button {
+  padding: 12px 16px;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  cursor: pointer;
+}
