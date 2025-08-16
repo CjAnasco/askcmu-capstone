@@ -1,16 +1,19 @@
 
 folder ko:
 cd "C:\Users\Cj\Documents\AskCMU CAPSTONE"
-type:
-   php -S localhost:8080
-result:
-PHP 8.2.0 Development Server started at http://localhost:8080
-type sa browser:
-http://localhost:8080/public/chatbot.html
 
-php/chatbot.php line 21
-$pythonPath = "C:\\Users\\Cj\\AppData\\Local\\Programs\\Python\\Python313\\python.exe";
-palitan sariling path
+type:
+ php -S localhost:8080
+
+result:
+ PHP 8.2.0 Development Server started at http://localhost:8080
+
+type sa browser:
+ http://localhost:8080/public/chatbot.html
+
+php/chatbot.php line 21:
+ $pythonPath = "C:\\Users\\Cj\\AppData\\Local\\Programs\\Python\\Python313\\python.exe";
+ palitan sariling path
 
 downloaded sa cmd:
 
