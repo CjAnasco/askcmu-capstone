@@ -1,15 +1,30 @@
-# Firebase key
+# 🔐 Firebase & Auth
+backend/firebase-auth.php
 backend/serviceAccountKey.json
+js/firebaseConfig.js
 
-# Python cache
+# 🧪 Chatlogs
+admin/chatlogs/*.json
+
+# 🧪 Logs
+php/debug.log
+*.log
+
+# 🧼 Git cleanup artifacts
+askcmu-capstone.git/
+askcmu-capstone.git.bfg-report/
+
+# 🧼 IDE & system clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 🐍 Python cache
 __pycache__/
 *.pyc
 
-# Logs
-*.log
-
-# Environment files
-.env
-
-# Node modules (if applicable)
-node_modules/
+# 🧪 Temp files
+*.tmp
+*.bak
+*.old

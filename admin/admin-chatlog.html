@@ -6,10 +6,42 @@
   <link rel="stylesheet" href="../css/style1.css">
 </head>
 <body class="chatlog-ui-body">
-  <h1 class="chatlog-ui-title">Admin Chat Logs</h1>
-  <div id="chatlog-ui-container" class="chatlog-ui-container"></div>
+  <header class="chatlog-ui-header">
+    <div class="logo">hahah</div>
+    <div class="admin-avatar">hahah</div>
+  </header>
 
-  <!-- Load admin logic -->
-  <script src="../js/adminChatlog.js"></script>
+  <main class="chatlog-ui-main">
+    <!-- 🔍 Left: User List -->
+    <aside class="chatlog-ui-sidebar">
+      <h2>Users</h2>
+      <div class="chatlog-ui-search">
+          <input type="text" id="userSearch" placeholder="Search users..." />
+      </div>
+
+      <div id="chatlog-ui-userlist" class="chatlog-ui-userlist">
+        <!-- JS will inject user entries here -->
+      </div>
+    </aside>
+
+    <!-- 💬 Center: Conversation Viewer -->
+    <section class="chatlog-ui-conversation">
+      <h2>Conversation</h2>
+      <div id="chatlog-ui-viewer" class="chatlog-ui-viewer">
+        <p>Select a user to view their conversation.</p>
+      </div>
+    </section>
+
+    <!-- 🔔 Right: Notifications -->
+    <aside class="chatlog-ui-notifications">
+      <h2>Notifications</h2>
+      <ul id="chatlog-ui-alerts">
+        <!-- JS can inject alerts here -->
+        <li>System initialized.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script type="module" src="../js/adminChatlog.js"></script>
 </body>
 </html>

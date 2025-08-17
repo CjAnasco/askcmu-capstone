@@ -3,7 +3,7 @@ folder ko:
 cd "C:\Users\Cj\Documents\AskCMU CAPSTONE"
 
 type:
- php -S localhost:8080
+   php -S localhost:8080
 
 result:
  PHP 8.2.0 Development Server started at http://localhost:8080

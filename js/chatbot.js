@@ -10,19 +10,34 @@ const input = document.getElementById('askcmu-user-input');
 const chatWindow = document.getElementById('askcmu-chat-window');
 
 const userName = localStorage.getItem("userName") || "Student";
+let isChatDeleted = false; // ✅ Track if chat was deleted
 
-// ✅ Load past conversation
+// ✅ Load past conversation from Firestore
 async function loadConversation() {
   try {
-    const res = await fetch(`/php/load-chat.php?user_id=${encodeURIComponent(userName)}`);
-    const history = await res.json();
+    const docRef = doc(db, "chatlogs", userName);
+    const snapshot = await getDoc(docRef);
 
-    history.forEach(entry => {
-      if (entry.user && typeof entry.user === 'string') {
-        addMessage('askcmu-user', entry.user);
+    if (!snapshot.exists()) {
+      isChatDeleted = true; // ✅ Mark as deleted
+      addMessage('askcmu-bot', "⚠️ Your conversation has been deleted by an admin.");
+      return;
+    }
+
+    const data = snapshot.data();
+    const exchanges = Array.isArray(data.exchanges) ? data.exchanges : [];
+
+    if (exchanges.length === 0) {
+      addMessage('askcmu-bot', "⚠️ No previous messages found.");
+      return;
+    }
+
+    exchanges.forEach(entry => {
+      if (entry.userMessage && typeof entry.userMessage === 'string') {
+        addMessage('askcmu-user', entry.userMessage);
       }
-      if (entry.bot && typeof entry.bot === 'string') {
-        addMessage('askcmu-bot', entry.bot);
+      if (entry.botResponse && typeof entry.botResponse === 'string') {
+        addMessage('askcmu-bot', entry.botResponse);
       }
     });
   } catch (err) {
@@ -37,6 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
   loadConversation();
 });
 
+// ✅ Handle new message submission
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const query = input.value.trim();
@@ -77,22 +93,23 @@ form.addEventListener('submit', async (e) => {
           botResponse: data.response
         };
 
-        if (existing.exists()) {
+        let updatedLog = [];
+
+        if (!isChatDeleted && existing.exists()) {
           const oldData = existing.data();
-          const updatedLog = Array.isArray(oldData.exchanges)
+          updatedLog = Array.isArray(oldData.exchanges)
             ? [...oldData.exchanges, newEntry]
             : [newEntry];
-
-          await setDoc(docRef, {
-            userId: userName,
-            exchanges: updatedLog
-          });
         } else {
-          await setDoc(docRef, {
-            userId: userName,
-            exchanges: [newEntry]
-          });
+          updatedLog = [newEntry]; // ✅ Start fresh if deleted
         }
+
+        await setDoc(docRef, {
+          userId: userName,
+          exchanges: updatedLog
+        });
+
+        isChatDeleted = false; // ✅ Reset flag after new message
       } catch (err) {
         console.error("Failed to log to Firestore:", err);
       }
@@ -107,6 +124,7 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+// ✅ Render message in chat window
 function addMessage(senderClass, text) {
   if (!text || typeof text !== 'string') return;
 
